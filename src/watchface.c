@@ -28,7 +28,6 @@ static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
 }
 
 static void main_layer_update_proc(Layer *layer, GContext *ctx) {
-  // graphics_draw_circle(ctx, GPoint(35, 35), 30);
   GRect bounds = layer_get_bounds(layer);
   APP_LOG(APP_LOG_LEVEL_DEBUG, "bounds size: %dx%d", bounds.size.w, bounds.size.h);
 
