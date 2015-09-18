@@ -6,7 +6,7 @@ int screen_height = 168;
 int border = 1;
 
 bool show_battery = true;
-bool show_timeline = true;
+bool show_timeline = false;
 int sidebar_width = 10;
 
 Window *s_main_window;

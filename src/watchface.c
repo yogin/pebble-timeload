@@ -6,8 +6,14 @@
 
 static void main_layer_update_proc(Layer *layer, GContext *ctx) {
   draw_time(layer, ctx);
-  draw_battery(layer, ctx);
-  draw_timeline(layer, ctx);
+
+  if (show_battery) {
+    draw_battery(layer, ctx);
+  }
+
+  if (show_timeline) {
+    draw_timeline(layer, ctx);
+  }
 }
 
 static void main_window_load(Window *window) {
@@ -16,7 +22,10 @@ static void main_window_load(Window *window) {
   layer_add_child(window_get_root_layer(window), s_main_layer);
 
   update_time();
-  battery_handler(battery_state_service_peek());
+
+  if (show_battery) {
+    battery_handler(battery_state_service_peek());
+  }
 }
 
 static void main_window_unload(Window *window) {
@@ -32,7 +41,10 @@ static void init() {
   });
 
   tick_timer_service_subscribe(MINUTE_UNIT, tick_handler);
-  battery_state_service_subscribe(battery_handler);
+
+  if (show_battery) {
+    battery_state_service_subscribe(battery_handler);
+  }
 
   window_stack_push(s_main_window, true);
 }

@@ -3,7 +3,7 @@
   "shortName": "TimeLoad",
   "longName": "Time Load",
   "companyName": "iDreamz",
-  "versionLabel": "1.0",
+  "versionLabel": "1.1",
   "sdkVersion": "3",
   "targetPlatforms": ["aplite", "basalt"],
   "watchapp": {
