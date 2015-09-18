@@ -16,6 +16,7 @@ static void main_window_load(Window *window) {
   layer_add_child(window_get_root_layer(window), s_main_layer);
 
   update_time();
+  battery_handler(battery_state_service_peek());
 }
 
 static void main_window_unload(Window *window) {
@@ -31,6 +32,7 @@ static void init() {
   });
 
   tick_timer_service_subscribe(MINUTE_UNIT, tick_handler);
+  battery_state_service_subscribe(battery_handler);
 
   window_stack_push(s_main_window, true);
 }
